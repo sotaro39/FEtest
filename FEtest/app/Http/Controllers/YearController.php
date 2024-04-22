@@ -15,8 +15,7 @@ class YearController extends Controller
     public function index()
     {
         $years = Year::all();
-        $data = ['years' => $years];
-        return view('home', $data);
+        return view('question.showA', compact('years'));
     }
 
     /**

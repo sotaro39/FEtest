@@ -2,9 +2,111 @@ body {
     margin: 0;
 }
 
+/* header */
+
+
+.header-container {
+    width: 50%;
+    margin: 0 auto;
+}
+
+.header-contents {
+    display: flex;
+    justify-content: space-between;
+}
+
+.icons {
+    font-size: 11px;
+    color: #aaa;
+}
+
+.header-data {
+    background: rgb(240, 219, 101);
+    border-radius: 5%;
+    text-align: center;
+    padding-top: 10px;
+}
+
+/* dropdow menu */
+
+/* menubar */
+
+ul.header-menu {
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+    text-align: center;
+    background-image: linear-gradient(180deg, rgba(150, 148, 148, 0.49) 49%, rgba(174, 171, 171, 0.49) 52%, rgba(0, 0, 0, 0.49));
+}
+
+/* mainmenu */
+
+ul.header-menu li {
+    width: 188px;
+    display: inline-block;
+    list-style-type: none;
+    position: relative;
+}
+
+ul.header-menu a {
+    color: white;
+    font-size: 14px;
+    line-height: 20px;
+    text-align: center;
+    text-decoration: none;
+    display: block;
+}
+
+ul.header-menu a:hover {
+    color: #888;
+}
+
+ul.header-menu ul {
+    display: none;
+}
+
+/* sabumenu */
+
+ul.header-menu ul {
+    background: #777;
+    display: none;
+    margin: 0px;
+    padding: 0px;
+    position: absolute;
+}
+
+ul.header-menu li:hover ul {
+    display: block;
+}
+
+/* main */
+
+main {
+    background: #ddd;
+    margin: 0px;
+    padding-top: 10px;
+}
+
+
+/* home */
+
+.speech-balloon {
+    margin-top: 20px;
+    border: 1px solid black;
+}
+
+article {
+    width: 50%;
+    margin: 0 auto;
+    border: 1px solid #ddd;
+    background: #fff;
+}
+
+/* year */
 
 .year-contents-container {
-    display: flex; /* Flexboxを使用 */
+    display: flex;
+    /* Flexboxを使用 */
 }
 
 .year-contents {
@@ -12,6 +114,36 @@ body {
     height: 30px;
     border: 1px solid #bbb;
     font-size: 14px;
-    text-align: center; 
+    text-align: center;
 }
 
+/*  tab-manu */
+
+.tab_name.is-active {
+    color: #fff;
+    opacity: 1;
+    transition: 0.3s ease;
+}
+
+/* btn1 */
+.tab_name--one.is-active {
+    border-bottom: 1rem solid orange;
+}
+
+/* btn2 */
+.tab_name--two.is-active {
+    border-bottom: 1rem solid orange;
+}
+
+/* btn3 */
+.tab_name--three.is-active {
+    border-bottom: 1rem solid orange;
+}
+
+.tab_content {
+    display: none;
+}
+
+.tab_content.is-show {
+    display: block;
+}

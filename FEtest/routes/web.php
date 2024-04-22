@@ -15,4 +15,9 @@ use App\Http\Controllers\QuestionController;
 |
 */
 
-Route::get('/', [YearController::class, 'index']);
+Route::get('/', function () {
+    return view('home');
+});
+Route::get('/fekakomon.php', [YearController::class, 'index'])->name('kakomon.index');
+
+Route::post('/question', [QuestionController::class, 'show'])->name('question.show');

@@ -14,7 +14,6 @@ class QuestionController extends Controller
      */
     public function index()
     {
-        
     }
 
     /**
@@ -44,12 +43,12 @@ class QuestionController extends Controller
      * @param  \App\Models\Question  $question
      * @return \Illuminate\Http\Response
      */
-    public function show(Question $question)
+    public function show(Request $request)
     {
-        $validation_array = [
-            'keyword' => 'required',
-            'checkbox' => 'required',
-        ];
+        $selectedYears = $request->input('years', []);
+
+        $questions = Question::whereIn('year_id', $selectedYears)->get();
+        return view('question.show', ['questions' => $questions]);
     }
 
     /**
