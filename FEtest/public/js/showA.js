@@ -3,18 +3,23 @@ var __webpack_exports__ = {};
 /*!*******************************!*\
   !*** ./resources/js/showA.js ***!
   \*******************************/
-document.addEventListener('DOMcontentLoaded', function () {
-  var tabs = document.getElementsByClassName('tab_name');
+document.addEventListener('DOMContentLoaded', function () {
+  // タブに対してクリックイベントを適用
+  var tabs = document.getElementsByClassName('tab');
   for (var i = 0; i < tabs.length; i++) {
-    tabs[i].addEventListener('click', tabsSwitch, false);
+    tabs[i].addEventListener('click', tabSwitch, false);
   }
+
+  // タブをクリックすると実行する関数
   function tabSwitch() {
-    document.getElementsByClassNmae('is-active')[0].classList.remove('is-active');
+    // タブのclassの値を変更
+    document.getElementsByClassName('is-active')[0].classList.remove('is-active');
     this.classList.add('is-active');
+    // コンテンツのclassの値を変更
     document.getElementsByClassName('is-show')[0].classList.remove('is-show');
     var arrayTabs = Array.prototype.slice.call(tabs);
     var index = arrayTabs.indexOf(this);
-    document.getElementsByClassNmae('tab_content')[index].classList.add('is-show');
+    document.getElementsByClassName('panel')[index].classList.add('is-show');
   }
   ;
 }, false);

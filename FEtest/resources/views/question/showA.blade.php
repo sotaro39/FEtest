@@ -15,43 +15,38 @@
                 試験対策としてご活用ください。
             </div>
         </section>
-        <div class="question-conent">
-            <div class="year-contents-container">
-                <form action="{{ route('question.show') }}" method="post">
-                    @csrf
-                    @foreach ($years as $year)
-                        <div class="year-contents">
-                            <input class="visually-hidden" type="checkbox" name="years[]" id="{{ $year->id }}"
-                                value="{{ $year->id }}" />
-                            <label for="{{ $year->id }}" class="year">{{ $year->year }}</label>
-                        </div>
-                    @endforeach
-                    <button type="submit">submit</button>
-                </form>
-            </div>
-        </div>
 
-        <ul class="tab_btn">
-            <li class="tab_name ab_name--one is-active">タブ１</li>
-            <li class="tab_name tab-name--two">タブ２</li>
-            <li class="tab_name tab_name--three">タブ３</li>
-        </ul>
-        <div class="tab_content tab_content--one is-show">
-            <div class="tab_content-inner">
-                <p class="tab_description">タブ１のテキスト</p>
-            </div>
-        </div>
-        <div class="tab_content tab_content--two">
-            <div class="tab_content-inner">
-                <p class="tab_description">タブ２のテキスト</p>
-            </div>
-        </div>
-        <div class="tab_content tab_content--three">
-            <div class="tab_content-iiner">
-                <p class="tab_description">タブ３のテキスト</p>
-            </div>
-        </div>
+        <div class="tab-panel">
+            <!--タブ-->
+            <ul class="tab-group">
+                <li class="tab tab-A is-active">Tab-A</li>
+                <li class="tab tab-B">Tab-B</li>
+                <li class="tab tab-C">Tab-C</li>
+            </ul>
 
+            <!--タブを切り替えて表示するコンテンツ-->
+            <div class="panel-group">
+                <div class="panel tab-A is-show">
+                    <div class="question-content">
+                        <form action="{{ route('question.show') }}" method="post">
+                            <div class="year-contents-container">
+                                @csrf
+                                @foreach ($years as $year)
+                                    <div class="year-contents">
+                                        <input   class="visually-hidden" type="checkbox" name="years[]"
+                                            id="{{ $year->id }}" value="{{ $year->id }}" />
+                                        <label for="{{ $year->id }}" class="year">{{ $year->year }}</label>
+                                    </div>
+                                @endforeach
+                            </div>
+                            <button type="submit">submit</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="panel tab-B">Content-B</div>
+                <div class="panel tab-C">Content-C</div>
+            </div>
+        </div>
 
     </article>
     <script src="{{ mix('js/showA.js') }}"></script>

@@ -11,6 +11,6 @@ class Year extends Model
 
     public function viewQuestions()
     {
-        return this->hasMany(Question::class);
+        return $this->hasMany(Question::class);
     }
 }
