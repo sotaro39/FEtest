@@ -30,13 +30,18 @@ Route::prefix('admin')->group(function () {
     Route::post('login', [Admin\LoginController::class, 'login'])->name('admin.login.login');
     Route::get('logout', [Admin\LoginController::class, 'logout'])->name('admin.loin.logout');
 
-    Route::get('/', [Admin\IndexController, 'index'])->name('admin.index');
+    Route::get('/', [Admin\IndexController::class, 'index'])->name('admin.index');
+});
+
+//管理者 (administratorsテーブル) 未承認の場合にログインフォームに強制リダイレクトさせるミドルウェアを設定する。　
+Route::prefix('admin')->middleware('auth:administrators')->group(function () {
+    Route::get('/', [Admin\IndexController::class, 'index'])->name('admin.index');
 });
 
 //フロント
 use App\Http\Controllers;
 
-Route::get('login', [Controllers\LoginControllers::class, 'index'])->name('login.index');
+Route::get('login', [Controllers\LoginController::class, 'index'])->name('login.index');
 Route::post('login', [Controllers\LoginController::class, 'login'])->name('login.loin');
-Route::get('logout', [Controllers\LoinController::class, 'logout'])->name('login.logout');
-Route::get('/', [Controllers\IndexController::class, 'index'])->name('index');
+Route::get('logout', [Controllers\LoginController::class, 'logout'])->name('login.logout');
+
