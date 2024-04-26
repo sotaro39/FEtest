@@ -17,8 +17,6 @@ class CreateArticlesTable extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained('members');
             $table->string('title');
-            $table->timestamp('updated_at')->useCurrent()->nullable();
-            $table->timestamp('created_at')->useCurrent()->nullable();
             $table->timestamps();
         });
     }

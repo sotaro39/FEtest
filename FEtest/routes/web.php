@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\YearController;
 use App\Http\Controllers\QuestionController;
+use App\Http\Controllers\ArticleController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -21,6 +22,8 @@ Route::get('/', function () {
 Route::get('/fekakomon.php', [YearController::class, 'index'])->name('kakomon.index');
 
 Route::post('/question', [QuestionController::class, 'show'])->name('question.show');
+
+Route::get('/board', [ArticleController::class, 'index'])->name('article.index');
 
 //管理画面
 use App\Http\Controllers\Admin;
