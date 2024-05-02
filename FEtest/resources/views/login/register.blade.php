@@ -12,7 +12,7 @@
 
 <body>
     <div class="container">
-        <h1>会員ログイン</h1>
+        <h1>新規登録</h1>
         @error('login')
             <div class="alert alert-danger">
                 &#x26A0; {{ $message }}
@@ -20,12 +20,14 @@
         @enderror
         <form method="POST" action="/login">
             @csrf
+            <label class="mt-3">名前</label>
+            <input type="text" name="name" class="form-control">
             <label class="mt-3">ユーザーID</label>
             <input type="text" name="email" class="form-control">
             <label class="mt-3">パスワード</label>
             <input class="form-control" type="password" name="password">
-            <button class="btn btn-primary mt-5" type="submit">ログイン</button>
-            <a href="{{ route('login.register') }}" class="btn btn-primary mt-5">新規登録</a>
+            <button class="btn btn-primary mt-5" type="submit">新規登録</button>
+            <a href="{{ route('login.index') }}" class="btn btn-primary mt-5">ログイン画面に戻る</a>
         </form>
 
     </div>

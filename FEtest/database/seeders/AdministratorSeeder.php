@@ -29,7 +29,7 @@ class AdministratorSeeder extends Seeder
         foreach ($administrators_data as $data) {
             $administrator = new Administrator();
             $administrator->userid = $data['userid'];
-            $administrator->password = Hash::make($data['passowrd']);
+            $administrator->password = Hash::make($data['password']);
             $administrator->save();
         }
     }

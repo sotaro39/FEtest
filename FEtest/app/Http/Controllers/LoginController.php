@@ -9,7 +9,12 @@ class LoginController extends Controller
 {
     public function index()
     {
-        return ('login.index');
+        return view('login.index');
+    }
+
+    public function cerate()
+    {
+        return view('login.register');
     }
 
     public function login(Request $request)
@@ -17,7 +22,7 @@ class LoginController extends Controller
         $credentials = $request->only(['email', 'password']);
         $guard = $request->guard;
 
-        if (Auth::guard('member')->attempt($credentials)) {
+        if (Auth::guard('members')->attempt($credentials)) {
             //ログインしたらトップページにリダイレクト
             return redirect()->route('index')->with([
                 'login_msg' => 'ログインしました。',

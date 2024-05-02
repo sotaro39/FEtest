@@ -14,7 +14,13 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        
+        // 全ての記事を取得し、各記事のコメント数も取得
+        $articles = Article::withCount('comments')->orderBy('created_at')->get();
+
+        // 記事ごとのコメント詳細も必要な場合は以下の行を使用
+        $comments = Article::with('comments')->get();
+
+        return view('article.index', compact('articles', 'comments'));
     }
 
     /**

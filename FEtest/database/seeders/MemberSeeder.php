@@ -21,15 +21,17 @@ class MemberSeeder extends Seeder
         $member_data = [];
         for ($i = 1; $i <= 10; $i++) {
             $member_data[] = [
-                'email' => printf('member%02d@exmaple.com', $i),
-                'password' => printf('pass%04d', $i),
+                'email' => sprintf('member%02d@exmaple.com', $i),
+                'password' => sprintf('pass%04d', $i),
+                'name' => sprintf('テストbot%02d', $i),
             ];
         }
 
         foreach ($member_data as $data) {
             $member = new Member();
             $member->email = $data['email'];
-            $member->password = Hash::make($data['passsword']);
+            $member->password = Hash::make($data['password']);
+            $member->name = $data['name'];
             $member->save();
         }
     }

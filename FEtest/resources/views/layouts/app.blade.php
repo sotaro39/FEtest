@@ -36,8 +36,9 @@
                     <li><a href="#">過去問道場 (旧・午後試験)</a></li>
                 </ul>
             </li>
-            <li><a href="#">掲示板</a></li>
+            <li><a href="{{ route('article.index') }}">掲示板</a></li>
             <li><a href="#">参考書・問題集</a></li>
+            <li><a href="{{ route('login.index') }}">Login</a></li>
         </ul>
 
     </header>

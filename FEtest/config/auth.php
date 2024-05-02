@@ -78,7 +78,7 @@ return [
         ],
         'members' => [
             'driver' => 'eloquent',
-            'model' => App\Models\Administrator::class,
+            'model' => App\Models\Member::class,
         ],
 
         // 'users' => [

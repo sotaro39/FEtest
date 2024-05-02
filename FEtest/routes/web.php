@@ -44,7 +44,10 @@ Route::prefix('admin')->middleware('auth:administrators')->group(function () {
 //フロント
 use App\Http\Controllers;
 
-Route::get('login', [Controllers\LoginController::class, 'index'])->name('login.index');
-Route::post('login', [Controllers\LoginController::class, 'login'])->name('login.loin');
-Route::get('logout', [Controllers\LoginController::class, 'logout'])->name('login.logout');
+Route::get('register', function () {
+    return view('login.register');
+})->name('login.register');
 
+Route::get('login', [Controllers\LoginController::class, 'index'])->name('login.index');
+Route::post('login', [Controllers\LoginController::class, 'login'])->name('login.login');
+Route::get('logout', [Controllers\LoginController::class, 'logout'])->name('login.logout');
