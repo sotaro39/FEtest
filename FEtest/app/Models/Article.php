@@ -9,11 +9,11 @@ class Article extends Model
 {
     use HasFactory;
 
-    public static function getAllOrderByCreated_at()
-    {
-        //コメント作成した日時を降順に取得　最新が一番上にくるように
-        return self::orderBy('created_at', 'desc')->get();
-    }
+    // public static function getAllOrderByCreated_at()
+    // {
+    //     //コメント作成した日時を降順に取得　最新が一番上にくるように
+    //     return self::orderBy('created_at', 'desc')->get();
+    // }
 
     public function comments()
     {
@@ -24,6 +24,6 @@ class Article extends Model
     public function latestComment()
     {
         // articleテーブルがcommentテーブルに対して 1対1 &　最新のコメントを取得
-        return $this->hasOne(Comment::class)->latest();
+        return $this->hasOne(Comment::class)->latestOfMany('created_at');
     }
 }

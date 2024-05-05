@@ -160,3 +160,23 @@ article {
 .panel.is-show {
     display: block;
 }
+
+
+/* btn */
+.createArticleBtn {
+    display: inline-block;
+    border-radius: 5%;
+    font-size: 14pt;
+    text-align: center;
+    cursor: pointer;
+    padding: 11px 44px;
+    background: #ff7f00;
+    color: #ffffff;
+    line-height: 1em;
+    opacity: 1;
+    transition: .3s;
+}
+
+.createArticleBtn:hover {
+    opacity: 0.8
+}

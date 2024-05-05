@@ -18,8 +18,8 @@ class DatabaseSeeder extends Seeder
         // \App\Models\User::factory(10)->create();
         Schema::disableForeignKeyConstraints();
         $this->call([
-            AdministratorSeeder::class,
-            MemberSeeder::class,
+            //AdministratorSeeder::class,
+            //MemberSeeder::class,
             ArticleSeeder::class,
         ]);
         Schema::enableForeignKeyConstraints();
