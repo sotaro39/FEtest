@@ -30,13 +30,13 @@
                 </ul>
             </li>
             <li><a href="{{ url('/') }}">基本情報技術者とは</a></li>
-            <li><a href="{{ route('kakomon.index') }}">過去問道場</a>
+            <li><a href="{{ route('home.index') }}">過去問道場</a>
                 <ul>
-                    <li><a href="{{ route('kakomon.index') }}">過去問道場 (科目A)</a></li>
+                    <li><a href="{{ route('home.index') }}">過去問道場 (科目A)</a></li>
                     <li><a href="#">過去問道場 (旧・午後試験)</a></li>
                 </ul>
             </li>
-            <li><a href="{{ route('article.index') }}">掲示板</a></li>
+            <li><a href="{{ route('articles.index') }}">掲示板</a></li>
             <li><a href="#">参考書・問題集</a></li>
             <li><a href="{{ route('login.index') }}">Login</a></li>
         </ul>

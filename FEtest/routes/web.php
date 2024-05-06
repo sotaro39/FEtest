@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\YearController;
 use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\CommentController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,11 +21,17 @@ use App\Http\Controllers\ArticleController;
 Route::get('/', function () {
     return view('home');
 });
-Route::get('/fekakomon.php', [YearController::class, 'index'])->name('kakomon.index');
+Route::get('/fekakomon', [YearController::class, 'index'])->name('home.index');
 
 Route::post('/question', [QuestionController::class, 'show'])->name('question.show');
 
-Route::get('/board', [ArticleController::class, 'index'])->name('article.index');
+Route::get('/articles', [ArticleController::class, 'index'])->name('articles.index');
+//　掲示板の作成画面の表示
+Route::get('/articles/create', [ArticleController::class, 'create'])->name('articles.create');
+// 掲示板データをデータベースに登録
+Route::post('/articles/create', [ArticleController::class, 'store'])->name('articles.store');
+// スレッドの詳細
+Route::get('/articles/{id}', [CommentController::class, 'show'])->name('articles.show');
 
 //管理画面
 use App\Http\Controllers\Admin;

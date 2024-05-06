@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Comment;
+use App\Models\Article;
 use Illuminate\Http\Request;
 
 class CommentController extends Controller
@@ -44,9 +45,20 @@ class CommentController extends Controller
      * @param  \App\Models\Comment  $comment
      * @return \Illuminate\Http\Response
      */
-    public function show(Comment $comment)
+    public function show($articleId)
     {
-        //
+        //　記事に関するコメントを取得
+        $article = Article::with('comments')->find($articleId);
+
+        if (!$article) {
+            return redirect()->route('articles.index')->with('error', '指定された記事が見つかりません。');
+        }
+
+        //　スレッド名を表示させたいため、articleテーブルデータも送る
+        return view('articles.show', [
+            'article' => $article,
+            'comments' => $article->comments,
+        ]);
     }
 
     /**
