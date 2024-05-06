@@ -10,6 +10,4 @@
         @endforeach
 
     </div>
-
-    
 @endsection()
