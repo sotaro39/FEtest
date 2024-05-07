@@ -12,10 +12,14 @@
         @endforeach
     </div>
 
-    <form action="{{ route('commnets.store') }}" method="post">
+    <form method="post">
         <div>
             <label for="name">お名前</label>
-            <input type="text">
+            <input type="text" name="name">
+            <label for="body">本文</label>
+            <textarea name="body"></textarea>
+            <label for="pass">削除用パスワード</label>
+            <input name="pass" type="text">
             <label>
         </div>
     </form>

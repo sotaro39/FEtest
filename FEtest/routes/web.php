@@ -26,7 +26,7 @@ Route::get('/fekakomon', [YearController::class, 'index'])->name('home.index');
 Route::post('/question', [QuestionController::class, 'show'])->name('question.show');
 
 Route::get('/articles', [ArticleController::class, 'index'])->name('articles.index');
-//　掲示板の作成画面の表示
+// 掲示板の作成画面の表示
 Route::get('/articles/create', [ArticleController::class, 'create'])->name('articles.create');
 // 掲示板データをデータベースに登録
 Route::post('/articles/create', [ArticleController::class, 'store'])->name('articles.store');
