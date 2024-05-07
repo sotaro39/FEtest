@@ -118,6 +118,6 @@ class CommentController extends Controller
      */
     public function destroy(Comment $comment)
     {
-        //
+        $commentId = $comment->input('comment_id');
     }
 }

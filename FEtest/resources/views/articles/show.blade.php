@@ -37,12 +37,12 @@
 
 
 
-    <form action="{{ route('') }}" method="POST">
+    <form action="{{ route('comments.destroy') }}" method="POST">
         @csrf
         <div class="form-group">
-            <label for="category-id">{{ __('カテゴリー') }}<span
+            <label for="comment_id">{{ __('カテゴリー') }}<span
                     class="badge badge-danger ml-2">{{ __('必須') }}</span></label>
-            <select class="form-control" id="category-id" name="category_id">
+            <select class="form-control" id="comment_id" name="comment_id">
                 @foreach ($comments as $comment)
                     @if ($comment->id != 1)
                         <option value="{{ $comment->id }}">{{ $comment->id }}</option>
