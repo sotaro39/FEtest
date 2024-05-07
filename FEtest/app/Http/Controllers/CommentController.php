@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Comment;
 use App\Models\Article;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class CommentController extends Controller
 {
@@ -34,9 +35,34 @@ class CommentController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, $article_id)
     {
-        //
+        $this->validate($request, [
+            'name' => 'required|max:20',
+            'body' => 'required',
+            'pass' => 'required|max:20'
+        ]);
+
+
+        try {
+            DB::beginTransaction();
+
+
+            $comment = new Comment();
+            $comment->article_id = $article_id;
+            $comment->name = $request->name;
+            $comment->body = $request->body;
+            $comment->password = $request->pass;
+            $comment->save();
+
+            DB::commit();
+
+            return redirect()->route('articles.show', $article_id)->with('success', 'Article and comment saved successfully');
+        } catch (\Exception $e) {
+            DB::rollback();
+
+            return redirect()->back()->with('エラーが発生しました: ', $e->getMessage());
+        }
     }
 
     /**

@@ -18,6 +18,9 @@ class CreateCommentsTable extends Migration
             $table->foreignId('article_id')->constrained('articles');
             $table->string('name');
             $table->text('body');
+            $table->string('password', 20);
+            $table->boolean('is_protected')->default(false);
+            $table->softDeletes();
             $table->timestamps();
         });
     }
