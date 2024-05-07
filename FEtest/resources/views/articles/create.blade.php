@@ -11,14 +11,17 @@
 
     <form action="{{ route('articles.store') }}" method="post">
         @csrf
-        <label class="articleCreateTitle" for="title">スレッドタイトル</label>
-        <input type="text" name="title">
-        <label class="articleCreateNmae" for="name">お名前</label>
-        <input type="text" name="name">
-        <label class="articleCreateBody" for="body">本文（<a href="#">コミュニティガイドライン</a>を順守して適切な投稿を心がけましょう）</label>
-        <textarea name="body"></textarea>
+        <div>
+            <label class="articleCreateTitle">スレッドタイトル</label>
+            <input type="text" name="title">
+            <label class="articleCreateNmae">お名前</label>
+            <input type="text" name="name">
+            <label class="articleCreateBody">本文（<a href="#">コミュニティガイドライン</a>を順守して適切な投稿を心がけましょう）</label>
+            <textarea name="body"></textarea>
 
-        <button type="submit">投稿</button>
+            <button type="submit">投稿</button>
+
+        </div>
     </form>
     <div>
         <span>※質問や投稿内容に回答してくれた方に対しては、【必ず】お礼や返答をお願いいたします。</span><br>

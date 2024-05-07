@@ -32,6 +32,8 @@ Route::get('/articles/create', [ArticleController::class, 'create'])->name('arti
 Route::post('/articles/create', [ArticleController::class, 'store'])->name('articles.store');
 // スレッドの詳細
 Route::get('/articles/{id}', [CommentController::class, 'show'])->name('articles.show');
+// コメントの作成
+Route::post('/articles/{article_id}', [CommentController::class, 'store'])->name('comments.store');
 
 //管理画面
 use App\Http\Controllers\Admin;

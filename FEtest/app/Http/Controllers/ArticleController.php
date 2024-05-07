@@ -19,9 +19,9 @@ class ArticleController extends Controller
     {
         // 各記事のコメント数と最新コメントを取得し、降順に並べる
         $articles = Article::withCount('comments')
-        ->with('latestComment')
-        ->orderBy('created_at', 'desc')
-        ->get();
+            ->with('latestComment')
+            ->orderBy('created_at', 'desc')
+            ->get();
 
         return view('articles.index', compact('articles'));
     }
@@ -38,7 +38,7 @@ class ArticleController extends Controller
         $comment = new Comment();
 
         // 空のオブジェクトを連想配列で送る
-        return view('articles.create',[
+        return view('articles.create', [
             'article' => $article,
             'comment' => $comment,
         ]);
@@ -74,20 +74,18 @@ class ArticleController extends Controller
             $comment->article_id = $article->id;
             $comment->name = $request->name;
             $comment->body = $request->body;
+            $comment->password = "fkyelsas2";
+            $comment->is_protected = true;
             $comment->save();
 
             DB::commit();
 
-            return redirect()->route('articles.index')->with('success','Article and comment saved successfully');
-
+            return redirect()->route('articles.index')->with('success', 'Article and comment saved successfully');
         } catch (\Exception $e) {
             DB::rollback();
 
             return redirect()->back()->with('エラーが発生しました: ', $e->getMessage());
         }
-
-
-
     }
 
     /**
