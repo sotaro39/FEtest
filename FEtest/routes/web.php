@@ -34,6 +34,10 @@ Route::post('/articles/create', [ArticleController::class, 'store'])->name('arti
 Route::get('/articles/{id}', [CommentController::class, 'show'])->name('articles.show');
 // コメントの作成
 Route::post('/articles/{article_id}', [CommentController::class, 'store'])->name('comments.store');
+// コメントの削除
+Route::post('articles/{article_id}/delete', [CommentController::class, 'destroy'])->name('comments.destroy');
+
+
 
 //管理画面
 use App\Http\Controllers\Admin;

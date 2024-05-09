@@ -74,7 +74,9 @@ class CommentController extends Controller
     public function show($articleId)
     {
         //　記事に関するコメントを取得
-        $article = Article::with('comments')->find($articleId);
+        $article = Article::with(['comments' => function ($query) {
+            $query->withTrashed();  // 削除されたコメントも含める
+        }])->find($articleId);
 
         if (!$article) {
             return redirect()->route('articles.index')->with('error', '指定された記事が見つかりません。');
@@ -116,8 +118,16 @@ class CommentController extends Controller
      * @param  \App\Models\Comment  $comment
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Comment $comment)
+    public function destroy(Request $request, $article_id)
     {
-        $commentId = $comment->input('comment_id');
+        $id = $request->comment_id;
+        $comment = comment::findOrFail($id);
+
+        if ($comment->password == $request->pass) {
+            $comment->delete();
+            return redirect()->route('articles.show', $article_id);
+        } else {
+            return redirect()->back()->with('error', 'パスワードが間違っています。');
+        }
     }
 }
