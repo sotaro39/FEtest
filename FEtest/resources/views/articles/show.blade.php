@@ -53,10 +53,11 @@
                     class="badge badge-danger ml-2">{{ __('必須') }}</span></label>
             <select class="form-control" id="comment_id" name="comment_id">
                 @foreach ($comments as $comment)
-                    @if ($comment->id != 1)
+                    @if ($comment->id != 1 && !$comment->trashed())
                         <option value="{{ $comment->id }}">{{ $comment->id }}</option>
                     @else
-                        <option value="" disabled>---</option>
+                    
+                        <!-- <option value="" disabled>---</option> -->
                     @endif
                 @endforeach
             </select>
