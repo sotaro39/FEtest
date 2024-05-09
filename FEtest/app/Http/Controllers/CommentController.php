@@ -120,4 +120,5 @@ class CommentController extends Controller
     {
         $commentId = $comment->input('comment_id');
     }
+
 }
