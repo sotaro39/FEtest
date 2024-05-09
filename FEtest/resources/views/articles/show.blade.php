@@ -6,10 +6,19 @@
         @foreach ($comments as $comment)
             <div class="comment-contents">
                 <ul>
-                    <li>{{ $comment->id }}</li>
-                    <li>{{ $comment->name }}</li>
-                    <li>{{ $comment->body }}</li>
-                    <li>{{ $comment->created_at }}</li>
+                    @if ($comment->trashed())
+                        <!-- コメントが削除されているか確認 -->
+                        <li>{{ $comment->id }}</li>
+                        <li>{{ $comment->name }}</li>
+                        <li>このコメントは削除されました</li> <!-- 削除されたコメントの表示内容を変更 -->
+                        <li>{{ $comment->created_at }}</li>
+                    @else
+                        <!-- コメントが削除されていない場合 -->
+                        <li>{{ $comment->id }}</li>
+                        <li>{{ $comment->name }}</li>
+                        <li>{{ $comment->body }}</li>
+                        <li>{{ $comment->created_at }}</li>
+                    @endif
                 </ul>
             </div>
         @endforeach
@@ -37,7 +46,7 @@
 
 
 
-    <form action="{{ route('comments.destroy') }}" method="POST">
+    <form action="{{ route('comments.destroy', ['article_id' => $article->id]) }}" method="POST">
         @csrf
         <div class="form-group">
             <label for="comment_id">{{ __('カテゴリー') }}<span
@@ -51,7 +60,14 @@
                     @endif
                 @endforeach
             </select>
+            削除用パスワード
+            <input type="text" name="pass">
         </div>
-        <button type="submit" class="btn btn-primary">送信</button>
+        <button type="submit" class="btn btn-primary" onclick="return confirm('本当に削除しますか?')">送信</button>
     </form>
+    @if (session('error'))
+        <div class="alert alert-danger">
+            {{ session('error') }}
+        </div>
+    @endif
 @endsection
