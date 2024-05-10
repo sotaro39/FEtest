@@ -2,6 +2,7 @@ body {
     margin: 0;
 }
 
+
 /* header */
 
 
@@ -96,8 +97,10 @@ main {
 }
 
 article {
+    display: flex;
     width: 50%;
     margin: 0 auto;
+    padding: 10px;
     border: 1px solid #ddd;
     background: #fff;
 }

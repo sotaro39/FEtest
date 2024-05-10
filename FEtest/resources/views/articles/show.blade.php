@@ -56,7 +56,6 @@
                     @if ($comment->id != 1 && !$comment->trashed())
                         <option value="{{ $comment->id }}">{{ $comment->id }}</option>
                     @else
-                    
                         <!-- <option value="" disabled>---</option> -->
                     @endif
                 @endforeach

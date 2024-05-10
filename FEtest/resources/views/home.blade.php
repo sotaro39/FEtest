@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-    <article>
+
         <div>
             <a href="#">HOME</a>
             &nbsp;&Gt;&nbsp;
@@ -119,5 +119,5 @@
                 これは、試験名称を英訳した時の『<span>F</span>undamental Information Techonology <spna>E</spna>ngineer Examination』からきています。当サイトのドメインも、この「FE」を冠した「fe-siken.com」となっています。</div>
             </div>
         </section>
-    </article>
+
 @endsection()
