@@ -7,6 +7,7 @@
     <title>道場</title>
     <link rel="stylesheet" href="/main.css">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <script src="{{ asset('js/app.js') }}"></script>
 </head>
 
 <body>
@@ -43,23 +44,28 @@
         </ul>
 
     </header>
-    <main>
-        <article>
-            <div>
-                @yield('content')
+    <main class="container mt-10">
+        <div class="row">
+            <div class="col-md-8">
+                <article>
+                    <div>
+                        @yield('content')
+                    </div>
+                </article>
             </div>
-            <div>
-                <div>aaaaaaaaaaaaaaaaaaa</div>
-                <div>aaaaaaaaaaaaaaaaaaa</div>
-                <div>aaaaaaaaaaaaaaaaaaa</div>
-                <div>aaaaaaaaaaaaaaaaaaa</div>
-                <div>aaaaaaaaaaaaaaaaaaa</div>
-                <div>aaaaaaaaaaaaaaaaaaa</div>
-                <div>aaaaaaaaaaaaaaaaaaa</div>
-                <div>aaaaaaaaaaaaaaaaaaa</div>
-                <div>aaaaaaaaaaaaaaaaaaa</div>
+            <div class="col-md-4">
+                <div class="side">
+                    <div>aaaaaaaaaaaaaaaaaaa</div>
+                    <div>aaaaaaaaaaaaaaaaaaa</div>
+                    <div>aaaaaaaaaaaaaaaaaaa</div>
+                    <div>aaaaaaaaaaaaaaaaaaa</div>
+                    <div>aaaaaaaaaaaaaaaaaaa</div>
+                    <div>aaaaaaaaaaaaaaaaaaa</div>
+                    <div>aaaaaaaaaaaaaaaaaaa</div>
+                </div>
+
             </div>
-        </article>
+        </div>
     </main>
 </body>
 

@@ -62,9 +62,8 @@ ul.header-menu a:hover {
     color: #888;
 }
 
-ul.header-menu ul {
-    display: none;
-}
+
+
 
 /* sabumenu */
 
@@ -74,6 +73,8 @@ ul.header-menu ul {
     margin: 0px;
     padding: 0px;
     position: absolute;
+    display: none;
+
 }
 
 ul.header-menu li:hover ul {
@@ -83,8 +84,8 @@ ul.header-menu li:hover ul {
 /* main */
 
 main {
-    background: #ddd;
-    margin: 0px;
+    width: 100%;
+    margin: 0 auto;
     padding-top: 10px;
 }
 
@@ -97,13 +98,20 @@ main {
 }
 
 article {
-    display: flex;
-    width: 50%;
-    margin: 0 auto;
-    padding: 10px;
     border: 1px solid #ddd;
     background: #fff;
 }
+
+.side {
+    width: 90%;
+    border: 1px solid #ddd;
+    background: #fff;
+}
+
+
+
+
+
 
 
 
