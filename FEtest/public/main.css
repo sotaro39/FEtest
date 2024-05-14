@@ -3,8 +3,9 @@ body {
 }
 
 
-/* header */
+/* layouts */
 
+/* header */
 
 .header-container {
     width: 50%;
@@ -16,7 +17,7 @@ body {
     justify-content: space-between;
 }
 
-.icons {
+.header-icons {
     font-size: 11px;
     color: #aaa;
 }
@@ -28,11 +29,11 @@ body {
     padding-top: 10px;
 }
 
-/* dropdow menu */
+/* dropdown menu */
 
-/* menubar */
+/* menu-bar */
 
-ul.header-menu {
+ul.nav-menu {
     margin: 0px;
     padding: 0px;
     width: 100%;
@@ -40,16 +41,16 @@ ul.header-menu {
     background-image: linear-gradient(180deg, rgba(150, 148, 148, 0.49) 49%, rgba(174, 171, 171, 0.49) 52%, rgba(0, 0, 0, 0.49));
 }
 
-/* mainmenu */
+/* main-menu */
 
-ul.header-menu li {
+ul.nav-menu li {
     width: 188px;
     display: inline-block;
     list-style-type: none;
     position: relative;
 }
 
-ul.header-menu a {
+ul.nav-menu a {
     color: white;
     font-size: 14px;
     line-height: 20px;
@@ -58,16 +59,14 @@ ul.header-menu a {
     display: block;
 }
 
-ul.header-menu a:hover {
+ul.nav-menu a:hover {
     color: #888;
 }
 
 
+/* sab-menu */
 
-
-/* sabumenu */
-
-ul.header-menu ul {
+ul.nav-menu ul {
     background: #777;
     display: none;
     margin: 0px;
@@ -77,11 +76,11 @@ ul.header-menu ul {
 
 }
 
-ul.header-menu li:hover ul {
+ul.nav-menu li:hover ul {
     display: block;
 }
 
-/* main */
+/* main-container*/
 
 main {
     width: 100%;
@@ -89,23 +88,52 @@ main {
     padding-top: 10px;
 }
 
+.main-contents {
+    border: 1px solid #ddd;
+    background: #fff;
+}
+
+/* side-bar */
+
+
+.side {
+    width: 90%;
+    margin-bottom: 5px;
+    border: 1px solid #ddd;
+    background: #fff;
+    position: relative; /* リボンの親要素を相対位置に */
+}
+
+.side-img {
+    width: 100%;
+    height: 100px;
+    object-fit: cover;
+    display: inline-block;
+}
+
+
+
+.ribon {
+    text-align: center;
+    background: greenyellow;
+    color: white;
+}
+
+
+.side-tab {
+    font-size: 12px;
+}
+
+
+
+
+
 
 /* home */
 
 .speech-balloon {
     margin-top: 20px;
     border: 1px solid black;
-}
-
-article {
-    border: 1px solid #ddd;
-    background: #fff;
-}
-
-.side {
-    width: 90%;
-    border: 1px solid #ddd;
-    background: #fff;
 }
 
 
