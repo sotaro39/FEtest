@@ -25,11 +25,16 @@ Route::get('/fekakomon', [YearController::class, 'index'])->name('home.index');
 
 Route::post('/question', [QuestionController::class, 'show'])->name('question.show');
 
-Route::get('/articles', [ArticleController::class, 'index'])->name('articles.index');
+Route::prefix('articles')->name('articles')->group(function () {
+    Route::get('/', [ArticleController::class, 'index'])->name('index');
+    Route::get('/create', [ArticleController::class, 'create'])->name('create');
+    Route::post('/create', [ArticleController::class, 'store'])->name('store');
+});
+
 // 掲示板の作成画面の表示
-Route::get('/articles/create', [ArticleController::class, 'create'])->name('articles.create');
+
 // 掲示板データをデータベースに登録
-Route::post('/articles/create', [ArticleController::class, 'store'])->name('articles.store');
+
 // スレッドの詳細
 Route::get('/articles/{id}', [CommentController::class, 'show'])->name('articles.show');
 // コメントの作成

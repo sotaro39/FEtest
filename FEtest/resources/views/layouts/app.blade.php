@@ -65,10 +65,10 @@
                     <div class="container text-center side-tab">
                         <div class="row">
                             <div class="col">
-                                <a href="#">基本情報技術者とは</a>
+                                <a href="{{ url('/') }}">基本情報技術者とは</a>
                             </div>
                             <div class="col">
-                                <a href="#">基本情報技術者メリット</a>
+                                <a href="{{ url('/sidepages/merit.blade.php') }}">基本情報技術者メリット</a>
                             </div>
                         </div>
                         <div class="row">
@@ -116,7 +116,6 @@
                 <div class="side">
                     <a href="#"><img class="side-img"></a>
                 </div>
-
                 <div class="side">
                     <div class="ribon">Welcome to My Blog!</div>
                     <div class="container text-center">

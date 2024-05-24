@@ -90,6 +90,7 @@ main {
 
 .main-contents {
     border: 1px solid #ddd;
+    padding: 10px;
     background: #fff;
 }
 
@@ -101,7 +102,8 @@ main {
     margin-bottom: 5px;
     border: 1px solid #ddd;
     background: #fff;
-    position: relative; /* リボンの親要素を相対位置に */
+    position: relative;
+    /* リボンの親要素を相対位置に */
 }
 
 .side-img {
@@ -136,12 +138,28 @@ main {
     border: 1px solid black;
 }
 
+section>h5 {
+    border-bottom: 2px solid #333;
+    margin: 15px 0;
+}
 
+section>h5::first-letter {
+    color: green;
+    font-size: 23px;
+}
 
+section>p {
+    padding-left: 10px;
+}
 
+section>dl {
+    padding-left: 10px;
+}
 
-
-
+dt {
+    padding-left: 10px;
+    color: green;
+}
 
 /* year */
 
