@@ -125,10 +125,9 @@ class CommentController extends Controller
 
         if ($comment->password == $request->pass) {
             $comment->delete();
-            return redirect()->route('articles.show', $article_id);
+            return redirect()->route('comments.show', $article_id);
         } else {
             return redirect()->back()->with('error', 'パスワードが間違っています。');
         }
     }
-
 }

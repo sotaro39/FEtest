@@ -25,17 +25,39 @@ Route::get('/fekakomon', [YearController::class, 'index'])->name('home.index');
 
 Route::post('/question', [QuestionController::class, 'show'])->name('question.show');
 
-Route::get('/articles', [ArticleController::class, 'index'])->name('articles.index');
-// 掲示板の作成画面の表示
-Route::get('/articles/create', [ArticleController::class, 'create'])->name('articles.create');
-// 掲示板データをデータベースに登録
-Route::post('/articles/create', [ArticleController::class, 'store'])->name('articles.store');
-// スレッドの詳細
-Route::get('/articles/{id}', [CommentController::class, 'show'])->name('articles.show');
-// コメントの作成
-Route::post('/articles/{article_id}', [CommentController::class, 'store'])->name('comments.store');
-// コメントの削除
-Route::post('articles/{article_id}/delete', [CommentController::class, 'destroy'])->name('comments.destroy');
+/* sidepages */
+Route::view('/merit', 'sidepages/merit');
+Route::view('/overview', 'sidepages/overview');
+Route::view('/scope', 'sidepages/scope');
+Route::view('/formality', 'sidepages/formality');
+Route::view('/study', 'sidepages/study');
+
+
+
+
+Route::controller(ArticleController::class)
+    ->prefix('articles')
+    ->as('articles.')
+    ->group(function () {
+        Route::get('/', 'index')->name('index');
+        // 掲示板の作成画面の表示
+        Route::get('/create', 'create')->name('create');
+        // 掲示板データをデータベースに登録
+        Route::post('/create', 'store')->name('store');
+    });
+
+Route::controller(CommentController::class)
+    ->prefix('comments')
+    ->as('comments.')
+    ->group(function () {
+        // スレッドの詳細
+        Route::get('/{id}', 'show')->name('show');
+        // コメントの作成
+        Route::post('/{article_id}', 'store')->name('store');
+        // コメントの削除
+        Route::post('/{article_id}/delete',  'destroy')->name('destroy');
+    });
+
 
 
 
