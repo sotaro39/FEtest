@@ -45,10 +45,10 @@
     </header>
     <main>
         <article>
-            <div>
+            <div class="main-container">
                 @yield('content')
             </div>
-            <div>
+            <div class="side-container">
                 <div>aaaaaaaaaaaaaaaaaaa</div>
                 <div>aaaaaaaaaaaaaaaaaaa</div>
                 <div>aaaaaaaaaaaaaaaaaaa</div>
