@@ -126,10 +126,13 @@ main {
     font-size: 12px;
 }
 
+/* sidepages */
 
-
-
-
+.side-section>h6 {
+    color: rgb(0, 54, 0);
+    font-size: 15px;
+    font-weight: bold;
+}
 
 /* home */
 

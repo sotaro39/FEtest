@@ -68,12 +68,12 @@
                                 <a href="{{ url('/') }}">基本情報技術者とは</a>
                             </div>
                             <div class="col">
-                                <a href="{{ url('/sidepages/merit.blade.php') }}">基本情報技術者メリット</a>
+                                <a href="/merit">基本情報技術者メリット</a>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col">
-                                <a href="#">試験範囲</a>
+                                <a href="/overview">試験範囲</a>
                             </div>
                             <div class="col">
                                 <a href="#">出題範囲</a>

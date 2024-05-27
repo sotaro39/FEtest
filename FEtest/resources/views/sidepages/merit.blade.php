@@ -1,6 +1,11 @@
 @extends('layouts.app')
 @section('content')
-    <section>
+    <div>
+        <a href="#">HOME</a>
+        &nbsp;&Gt;&nbsp;
+        <strong>基本情報技術者とは</strong>
+    </div>
+    <section class="side-section">
         <h5>基本情報技術者合格のメリット</h5>
         <p>世間的に認知度の高い国家試験である<strong>基本情報技術者試験</strong>に合格することで様々なメリットがあると思われます。</p>
         <h6>1.企業からの高い評価</h6>
