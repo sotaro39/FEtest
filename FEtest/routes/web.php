@@ -31,7 +31,8 @@ Route::view('/overview', 'sidepages/overview');
 Route::view('/scope', 'sidepages/scope');
 Route::view('/formality', 'sidepages/formality');
 Route::view('/study', 'sidepages/study');
-
+Route::view('/level', 'sidepages/level');
+Route::view('/exemption', 'sidepages/exemption');
 
 
 

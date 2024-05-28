@@ -146,14 +146,9 @@ section>h5 {
     margin: 15px 0;
 }
 
-<<<<<<< HEAD
-.side-container {
-    
-=======
 section>h5::first-letter {
     color: green;
     font-size: 23px;
->>>>>>> ab9723f393c35a81ce79a51f1cedf6c3678c047f
 }
 
 section>p {

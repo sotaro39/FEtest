@@ -84,12 +84,12 @@
                                 <a href="/formality">試験の形式と合格基準</a>
                             </div>
                             <div class="col">
-                                <a href="#">基本情報技術者の難易度</a>
+                                <a href="/level">基本情報技術者の難易度</a>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col">
-                                <a href="#">科目A試験の免除制度</a>
+                                <a href="/exemption">科目A試験の免除制度</a>
                             </div>
                             <div class="col">
                                 <a href="/study">効果的な勉強方法</a>
