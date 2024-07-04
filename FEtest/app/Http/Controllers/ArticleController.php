@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Article;
 use App\Models\Comment;
 use Illuminate\Http\Request;
+use Illuminate\Pagination\Paginator;
+use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 
 
@@ -21,10 +23,38 @@ class ArticleController extends Controller
         $articles = Article::withCount('comments')
             ->with('latestComment')
             ->orderBy('created_at', 'desc')
-            ->get();
+            ->paginate(30);
 
         return view('articles.index', compact('articles'));
     }
+
+    public function showHomePageWithComments()
+    {
+        $articles = Article::withCount('comments')
+            ->with('latestComment')
+            ->orderBy('created_at', 'desc')
+            ->take(4)
+            ->get();
+
+        return view('home', compact('articles'));
+    }
+
+    public function search(Request $request)
+    {
+        $keyword = $request->input('content');
+
+        if (empty($keyword)) {
+            return redirect()->back();
+        }
+
+        $articles = Article::select('id', 'title')
+            ->where('title', 'like', '%' . $keyword . '%')
+            ->with('oldestComment')->paginate(10);
+
+        return view('articles.search', compact('articles'));
+    }
+
+
 
     /**
      * Show the form for creating a new resource.
@@ -72,9 +102,10 @@ class ArticleController extends Controller
             //　commentsテーブルに保存
             $comment = new Comment();
             $comment->article_id = $article->id;
+            $comment->board_sequence = 1;
             $comment->name = $request->name;
             $comment->body = $request->body;
-            $comment->password = "fkyelsas2";
+            $comment->password = "donthack";
             $comment->is_protected = true;
             $comment->save();
 

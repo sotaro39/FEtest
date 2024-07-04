@@ -18,14 +18,16 @@ use App\Http\Controllers\CommentController;
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-});
+// Route::get('/', function () {
+//     return view('home');
+// })->name('home');
+Route::get('/', [ArticleController::class, 'showHomePageWithComments'])->name('home.withComments');
 Route::get('/fekakomon', [YearController::class, 'index'])->name('home.index');
 
 Route::post('/question', [QuestionController::class, 'show'])->name('question.show');
 
 /* sidepages */
+Route::view('/feis', 'sidepages/feis');
 Route::view('/merit', 'sidepages/merit');
 Route::view('/overview', 'sidepages/overview');
 Route::view('/scope', 'sidepages/scope');
@@ -33,6 +35,9 @@ Route::view('/formality', 'sidepages/formality');
 Route::view('/study', 'sidepages/study');
 Route::view('/level', 'sidepages/level');
 Route::view('/exemption', 'sidepages/exemption');
+Route::view('/text', 'sidepages/text');
+Route::view('/course', 'sidepages/course');
+Route::view('/question', 'sidepages/question');
 
 
 
@@ -40,7 +45,10 @@ Route::controller(ArticleController::class)
     ->prefix('articles')
     ->as('articles.')
     ->group(function () {
+        //掲示板一覧
         Route::get('/', 'index')->name('index');
+        //掲示板の検索
+        Route::get('/search', 'search')->name('search');
         // 掲示板の作成画面の表示
         Route::get('/create', 'create')->name('create');
         // 掲示板データをデータベースに登録

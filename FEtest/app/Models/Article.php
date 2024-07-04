@@ -13,9 +13,13 @@ class Article extends Model
 
     // public static function getAllOrderByCreated_at()
     // {
-    //     //コメント作成した日時を降順に取得　最新が一番上にくるように
+    //     コメント作成した日時を降順に取得　最新が一番上にくるように
     //     return self::orderBy('created_at', 'desc')->get();
     // }
+    public function oldestComment()
+    {
+        return $this->hasOne(Comment::class)->oldestOfMany('created_at');
+    }
 
     public function comments()
     {

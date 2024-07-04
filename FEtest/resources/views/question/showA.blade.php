@@ -1,13 +1,12 @@
 @extends('layouts.app')
 @section('content')
     <div>
-        <a href="#">HOME</a>
+        <a href="{{ route('home.withComments') }}">HOME</a>
         &nbsp;&Gt;&nbsp;
         <span style="font-weight:bold">基本情報技術者過去問道場（登録者253,000人突破）</span>
     </div>
     <section>
-        <h4>&spades;基本情報技術者過去問道場</h4>
-        <hr align="cener">
+        <h5>基本情報技術者過去問道場</h5>
         <div>
             「基本情報技術者試験過去問道場」は、基本情報技術者試験過去問大(2,800問)の中からランダムに出題する完全解説付きのWeb問題集です。
             PC/スマホ/タブレットを使って、スキマ時間を活用して無料で過去問演習に取り組むことができ、学習履歴を管理することも可能です。

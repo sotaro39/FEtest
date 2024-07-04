@@ -9,8 +9,9 @@ use Illuminate\Support\Facades\DB;
 
 class CommentController extends Controller
 {
+
     /**
-     * Display a listing of the resource.
+     * Display a listing of the resource.d
      *
      * @return \Illuminate\Http\Response
      */
@@ -46,6 +47,8 @@ class CommentController extends Controller
 
         try {
             DB::beginTransaction();
+            $last_sequence = Comment::where('article_id', $article_id)->max('board_sequence');
+            $new_sequence = $last_sequence + 1;
 
 
             $comment = new Comment();
@@ -53,6 +56,7 @@ class CommentController extends Controller
             $comment->name = $request->name;
             $comment->body = $request->body;
             $comment->password = $request->pass;
+            $comment->board_sequence = $new_sequence;
             $comment->save();
 
             DB::commit();
@@ -81,11 +85,12 @@ class CommentController extends Controller
         if (!$article) {
             return redirect()->route('articles.index')->with('error', '指定された記事が見つかりません。');
         }
-
+        $totalArticlesCount = Article::count();
         //　スレッド名を表示させたいため、articleテーブルデータも送る
         return view('articles.show', [
             'article' => $article,
             'comments' => $article->comments,
+            'totalArticlesCount' => $totalArticlesCount,
         ]);
     }
 
@@ -120,10 +125,15 @@ class CommentController extends Controller
      */
     public function destroy(Request $request, $article_id)
     {
-        $id = $request->comment_id;
-        $comment = comment::findOrFail($id);
 
-        if ($comment->password == $request->pass) {
+        $board_sequence = $request->comment_id;
+        $password = $request->pass;
+
+        $comment = Comment::where('article_id', $article_id)
+            ->where('board_sequence', $board_sequence)
+            ->firstOrFail();
+
+        if ($comment->password == $password) {
             $comment->delete();
             return redirect()->route('comments.show', $article_id);
         } else {
